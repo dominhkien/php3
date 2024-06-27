@@ -1,18 +1,14 @@
 <?php
 
+use App\Http\Controllers\SvController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+Route::get('/test', [UserController::class,'index']);
+//slug
+Route::get('/test1/{id}/{name?}', [UserController::class,'showuser']);
+//params
+Route::get('/update-user', [UserController::class,'updateuser']);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//ttsv
+Route::get('/ttsv',[SvController::class,'index']);

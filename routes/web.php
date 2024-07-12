@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SvController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -21,4 +22,12 @@ Route::group(['prefix' => 'users','as'=>'users.',], function () {
     Route::get('edit/{id}',[UserController::class,'updateuser'])->name('updateuser');
     Route::put('edit/{id}',[UserController::class,'edit'])->name('edit');
 
+});
+Route::group(['prefix'=>'product','as'=>'product.'],function(){
+    Route::get('list-product',[ProductController::class,'index'])->name('list');
+    Route::get('show-add',[ProductController::class,'create'])->name('add');
+    Route::post('add-product',[ProductController::class,'store'])->name('addproduct');
+    Route::get('delete/{id}',[ProductController::class,'destroy'])->name('delete');
+    Route::get('edit/{id}',[ProductController::class,'edit'])->name('edit');
+    Route::put('edit/{id}',[ProductController::class,'update'])->name('update');
 });

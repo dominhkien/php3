@@ -31,3 +31,4 @@ Route::group(['prefix'=>'product','as'=>'product.'],function(){
     Route::get('edit/{id}',[ProductController::class,'edit'])->name('edit');
     Route::put('edit/{id}',[ProductController::class,'update'])->name('update');
 });
+Route::get('layout',[ProductController::class,'list']);

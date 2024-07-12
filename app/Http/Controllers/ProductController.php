@@ -101,4 +101,7 @@ class ProductController extends Controller
         DB::table('product')->where('id', $id)->delete();
         return back();
     }
+    public function list(){
+        return view('View.index');
+    }
 }
